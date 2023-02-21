@@ -1,20 +1,47 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      APP - IMC
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ <form #formulario="ngForm">
+    <br><br>
+    <ion-item>
+      <ion-label position="floating">Peso: </ion-label>
+      <ion-input name="imcpeso" ngModel></ion-input>
+    </ion-item><br>
+    <ion-item>
+      <ion-label position="floating">Altura: </ion-label>
+      <ion-input name="imcaltura" ngModel></ion-input>
+    </ion-item><br>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button (click)="calcimc(formulario)">Calcular IMC</ion-button>
+    
+    <br><br>
+    <ion-item>
+      <ion-label position="floating">IMC: </ion-label>
+      <ion-input disabled value="{{tximc}}"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label position="floating">Situação: </ion-label>
+      <ion-input disabled value="{{situacao}}"></ion-input>
+    </ion-item>
+  </form>
+
+  <div><br>
+    <pre>
+        FAIXAS IMC:
+          - Abaixo de 18.5 - Abaixo do peso
+          - Entre 18.5 e 24.9 -	Peso ideal
+          - Entre 25 e 29.9 -	Excesso de peso
+          - Entre 30 e 34.9 -	Obesidade I
+          - Entre 35 e 39.9 -	Obesidade II
+          - Acima ou igual a 40 - Obesidade III
+    </pre>
   </div>
+
 </ion-content>
